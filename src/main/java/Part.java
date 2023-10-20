@@ -27,10 +27,13 @@ public abstract class Part extends Thing{
     public Integer getTimeLimit() {return timeLimit;}
     public LinkedList<Time> getTimes() {return times;}
     
-    // ALSO MAKE IT PRINT "(#overdue parts)"
     @Override
     public String toString() {
-        return String.format("%s - %s - %s", name, serial, this.calculateTime());
+        return name + getOverdueString();
+    }
+    
+    public String fullPrint() {
+        return String.format("%s - %s - %d - %s\n", name, serial, this.calculateTime());
     }
 
     public Integer calculateTime() {
@@ -60,5 +63,12 @@ public abstract class Part extends Thing{
             return 1;
         }
         return 0;
+    }
+
+    public String getOverdueString() {
+        if (timeLimit < calculateTime()) {
+            return "(Overdue)";
+        }
+        return "";
     }
 }

@@ -18,10 +18,17 @@ public class Assembly extends Thing{
     public String getSubsystem() {return subsystem;}
     public LinkedList<Part> getParts() {return parts;}
     
-    // ALSO MAKE IT PRINT "(#overdue parts)"
     @Override
     public String toString() {
-        return name;
+        return name + " (Overdue Parts: " + getOverdueCount() + ")";
+    }
+
+    public String fullPrint() {
+        String returnMe = name + " (Overdue Parts: " + getOverdueCount() + ")\n";
+        for (Part part: parts) {
+            returnMe += "              • " + part.fullPrint();
+        }
+        return returnMe;
     }
 
     public void addPart(Part part) {

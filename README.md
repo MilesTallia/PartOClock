@@ -18,7 +18,12 @@ __Errors / Extra abilities:__
 
 
 __Types of times:__
-Endurance - Maneuv - Clutch Tune - test - dyno - other
+- Endurance
+- Maneuv 
+- Clutch Tune 
+- test 
+- dyno 
+- other
 
 --------------------------------------------------------------------------------------
 

@@ -2,7 +2,7 @@ package main.java;
 
 import java.util.LinkedList;
 
-public class Assembly {
+public class Assembly extends Thing{
     private String name;
     private String subsystem;
     private LinkedList<Part> parts;

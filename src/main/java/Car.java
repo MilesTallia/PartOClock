@@ -1,18 +1,17 @@
 package main.java;
 
 import java.util.HashMap;
-import java.util.Objects;
 
 public class Car {
     private String name;
-    private HashMap<String, Assembly[]> subsystems;
+    private HashMap<String, Thing[]> subsystems;
     
     public Car(String name){
         this.name = name;
         subsystems = makeSubsystemsDict();
     }
 
-    private HashMap<String, Assembly[]> makeSubsystemsDict() {
+    private HashMap<String, Thing[]> makeSubsystemsDict() {
         // This makes the subsystem bins for each new car
         String[] subNames = {
             "Frame","Suspension","Steering","Outboard","Brakes",
@@ -20,16 +19,16 @@ public class Car {
             "Manufacturing","Engine","Composites","Driveline Integration",
             "Driveshaft","Front Differential","PTU","Disconnect"
         };
-        HashMap<String, Assembly[]> subs = new HashMap<String, Assembly[]>();
+        HashMap<String, Thing[]> subs = new HashMap<String, Thing[]>();
         for (String sub : subNames) {
-            subs.put(sub, new Assembly[]{});
+            subs.put(sub, new Thing[]{});
         }
         return subs;
     }
 
     // These are all the getters
     public String getName() {return name;}
-    public HashMap<String, Assembly[]> getSubs() {return subsystems;}
+    public HashMap<String, Thing[]> getSubs() {return subsystems;}
 
     // ALSO MAKE IT PRINT "(#overdue parts)"
     @Override
@@ -39,9 +38,9 @@ public class Car {
 
     public void addTime(Time time) {
         for (String subName : subsystems.keySet()) {
-            Assembly[] assemblies = subsystems.get(subName);
-            for (Assembly assembly : assemblies){
-                assembly.addTime(time);
+            Thing[] things = subsystems.get(subName);
+            for (Thing thing : things){
+                thing.addTime(time);
             }
         }
     }

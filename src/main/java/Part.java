@@ -2,7 +2,7 @@ package main.java;
 
 import java.util.LinkedList;
 
-public abstract class Part {
+public abstract class Part extends Thing{
     private String name;
     private String serial;
     private Integer timeLimit;

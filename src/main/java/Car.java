@@ -32,7 +32,7 @@ public class Car {
     // ALSO MAKE IT PRINT "(#overdue parts)"
     @Override
     public String toString() {
-        return name;
+        return name + " (Overdue Parts: " + getOverdueParts() + ")";
     }
 
     public void addTime(Time time) {
@@ -42,5 +42,25 @@ public class Car {
                 thing.addTime(time);
             }
         }
+    }
+
+    public Integer getOverdueParts() {
+        Integer totalParts = 0;
+        for (String subName : subsystems.keySet()) {
+            Thing[] things = subsystems.get(subName);
+            for (Thing thing : things){
+                totalParts += thing.getOverdueCount();
+            }
+        }
+        return totalParts;
+    }
+
+    public Integer getOverduePartsOfSubsystem(String subsystemName) {
+        Integer totalParts = 0;
+        Thing[] things = subsystems.get(subsystemName);
+        for (Thing thing : things){
+            totalParts += thing.getOverdueCount();
+        }
+        return totalParts;
     }
 }

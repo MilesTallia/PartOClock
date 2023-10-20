@@ -33,4 +33,12 @@ public class Assembly extends Thing{
             part.addTime(time);
         }
     }
+
+    public Integer getOverdueCount() {
+        Integer totalParts = 0;
+        for (Part part : parts) {
+            totalParts += part.getOverdueCount();
+        }
+        return totalParts;
+    }
 }

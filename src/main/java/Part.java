@@ -54,4 +54,11 @@ public abstract class Part extends Thing{
     public void addTime(Time time) {
         times.add(time);
     }
+
+    public Integer getOverdueCount() {
+        if (timeLimit < calculateTime()) {
+            return 1;
+        }
+        return 0;
+    }
 }

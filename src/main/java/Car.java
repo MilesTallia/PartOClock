@@ -14,9 +14,8 @@ public class Car {
     private HashMap<String, Thing[]> makeSubsystemsDict() {
         // This makes the subsystem bins for each new car
         String[] subNames = {
-            "Frame","Suspension","Steering","Outboard","Brakes",
-            "Ergonomics","Reduction","CVT","Electrical","R&D",
-            "Manufacturing","Engine","Composites","Driveline Integration",
+            "Frame","Suspension","Steering","Outboard","Brakes","Ergonomics",
+            "Reduction","CVT","Electrical","Engine","Driveline Integration",
             "Driveshaft","Front Differential","PTU","Disconnect"
         };
         HashMap<String, Thing[]> subs = new HashMap<String, Thing[]>();

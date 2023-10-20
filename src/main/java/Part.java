@@ -41,6 +41,16 @@ public abstract class Part extends Thing{
         return totalTime;
     }
 
+    public Integer calculateTimeOfType(String type) {
+        Integer totalTime = 0;
+        for (Time time : times) {
+            if (time.getType().equals(type)){
+                totalTime += time.getTime();
+            }
+        }
+        return totalTime;
+    }
+
     public void addTime(Time time) {
         times.add(time);
     }

@@ -1,8 +1,8 @@
-package main.java;
+package main.java.model;
 
 import java.util.LinkedList;
 
-public abstract class Part extends Thing{
+public class Part extends Thing{
     private String name;
     private String serial;
     private Integer timeLimit;
@@ -70,5 +70,9 @@ public abstract class Part extends Thing{
             return "(Overdue)";
         }
         return "";
+    }
+
+    public void addPart(Thing part, String[] path) {
+        System.out.println("I am the part motherfucker! can't add a part to a part - gotta add that shit to an assembly.");
     }
 }

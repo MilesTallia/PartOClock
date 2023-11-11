@@ -1,22 +1,23 @@
-package main.java;
+package main.java.model;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Assembly extends Thing{
     private String name;
     private String subsystem;
-    private LinkedList<Part> parts;
+    private LinkedList<Thing> parts;
     
     public Assembly(String name, String subsystem){
         this.name = name;
         this.subsystem = subsystem;
-        this.parts = new LinkedList<Part>();
+        this.parts = new LinkedList<Thing>();
     }
 
     // These are all the getters
     public String getName() {return name;}
     public String getSubsystem() {return subsystem;}
-    public LinkedList<Part> getParts() {return parts;}
+    public LinkedList<Thing> getParts() {return parts;}
     
     @Override
     public String toString() {
@@ -25,8 +26,8 @@ public class Assembly extends Thing{
 
     public String fullPrint() {
         String returnMe = name + " (Overdue Parts: " + getOverdueCount() + ")\n";
-        for (Part part: parts) {
-            returnMe += "              • " + part.fullPrint();
+        for (Thing part: parts) {
+            returnMe += "              - " + part.fullPrint();
         }
         return returnMe;
     }
@@ -36,16 +37,29 @@ public class Assembly extends Thing{
     }
 
     public void addTime(Time time) {
-        for (Part part : parts) {
+        for (Thing part : parts) {
             part.addTime(time);
         }
     }
 
     public Integer getOverdueCount() {
         Integer totalParts = 0;
-        for (Part part : parts) {
+        for (Thing part : parts) {
             totalParts += part.getOverdueCount();
         }
         return totalParts;
+    }
+    
+    public void addPart(Thing part, String[] path) {
+        if (path[0].equals(name)) {
+            parts.add(part);
+        } else {
+            for (Thing thing : parts) {
+                if (thing.getName().equals(path[0])) {
+                    String[] newPath = Arrays.copyOfRange(path, 1, path.length-1);
+                    thing.addPart(part, newPath);
+                }
+            }
+        }
     }
 }

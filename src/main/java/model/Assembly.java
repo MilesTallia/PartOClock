@@ -38,7 +38,7 @@ public class Assembly extends Thing{
         return returnMe;
     }
 
-    public void addTime(Time time) {
+    public void addTime(Runtime time) {
         for (Thing part : parts) {
             part.addTime(time);
         }
@@ -55,9 +55,9 @@ public class Assembly extends Thing{
     public void addPart(Thing part, String[] path) {
         if (path[0].equals(name) & path.length == 1) {
             parts.add(part);
-        } else {
+        } else if (path[0].equals(name)) {
             for (Thing thing : parts) {
-                if (path[0].equals(thing.getName()) ) {
+                if (path[1].equals(thing.getName()) ) {
                     String[] newPath = Arrays.copyOfRange(path, 1, path.length);
                     thing.addPart(part, newPath);
                 }

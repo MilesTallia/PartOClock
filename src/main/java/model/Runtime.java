@@ -1,11 +1,13 @@
 package main.java.model;
 
-public class Time {
+import java.time.LocalDateTime;
+
+public class Runtime {
     public String type;
     public Integer time;
-    public java.sql.Time date;
+    public LocalDateTime date;
 
-    public Time(String type, Integer time, java.sql.Time date) {
+    public Runtime(String type, Integer time, LocalDateTime date) {
         this.type = type;
         this.time = time;
         this.date = date;
@@ -13,7 +15,7 @@ public class Time {
 
     public String getType() {return type;}
     public Integer getTime() {return time;}
-    public java.sql.Time getDate() {return date;}
+    public LocalDateTime getDate() {return date;}
     
     @Override
     public String toString() {

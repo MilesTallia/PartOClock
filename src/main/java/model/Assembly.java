@@ -21,11 +21,15 @@ public class Assembly extends Thing{
     
     @Override
     public String toString() {
-        return name + " (Overdue Parts: " + getOverdueCount() + ")";
+        String returnMe = name;
+        if (getOverdueCount() > 0) {
+            returnMe += " (Overdue Parts: " + getOverdueCount() + ")";
+        }
+        return returnMe;
     }
 
     public String fullPrint() {
-        String returnMe = name + " (Overdue Parts: " + getOverdueCount() + ")\n";
+        String returnMe = "[A] " + this.toString() + "\n";
         for (Thing part: parts) {
             returnMe += "              - " + part.fullPrint();
         }

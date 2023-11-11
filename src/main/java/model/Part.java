@@ -33,7 +33,7 @@ public class Part extends Thing{
     }
     
     public String fullPrint() {
-        return String.format("%s - %s - %d - %s\n", name, serial, this.calculateTime());
+        return String.format("[P] %s - {%s} - %ds\n", this.toString(), serial, this.calculateTime());
     }
 
     public Integer calculateTime() {

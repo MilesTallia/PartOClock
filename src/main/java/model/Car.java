@@ -113,4 +113,17 @@ public class Car {
         }
         return totalParts;
     }
+
+    public Part findPart(String serial) {
+        for (String subName : subsystems.keySet()) {
+            LinkedList<Thing> things = subsystems.get(subName);
+            for (Thing thing : things){
+                if (thing.findPart(serial) != null) {
+                    return thing.findPart(serial);
+                }
+            }
+        }
+        return null;
+    }
+
 }

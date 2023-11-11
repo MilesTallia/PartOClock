@@ -68,13 +68,20 @@ public class Part extends Thing{
     }
 
     public String getOverdueString() {
-        if (timeLimit < calculateTime()) {
-            return "(Overdue)";
+        if (timeLimit < calculateTime() & timeLimit != 0) {
+            return "{[***OVERDUE***]}";
         }
         return "";
     }
 
     public void addPart(Thing part, String[] path) {
         System.out.println("I am the part motherfucker! can't add a part to a part - gotta add that shit to an assembly.");
+    }
+
+    public Part findPart(String cereal) {
+        if (serial.equals(cereal)) {
+            return this;
+        }
+        return null;
     }
 }

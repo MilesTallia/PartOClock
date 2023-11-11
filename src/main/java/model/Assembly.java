@@ -2,6 +2,7 @@ package main.java.model;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Optional;
 
 public class Assembly extends Thing{
     private String name;
@@ -63,5 +64,14 @@ public class Assembly extends Thing{
                 }
             }
         }
+    }
+
+    public Part findPart(String serial) {
+        for (Thing part : parts) {
+            if (part.findPart(serial) != null) {
+                return part.findPart(serial);
+            }
+        }
+        return null;
     }
 }

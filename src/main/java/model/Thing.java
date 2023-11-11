@@ -6,4 +6,5 @@ public abstract class Thing {
     public abstract Integer getOverdueCount();
     public abstract String fullPrint(Integer length);
     public abstract void addPart(Thing part, String[] path);
+    public abstract Part findPart(String serial);
 }

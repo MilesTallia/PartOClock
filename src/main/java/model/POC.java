@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class POC {
 
     public static void populateCar(Car car) {
-        Part frame = new Part("Frame", "1");
+        Part frame = new Part("Frame", "1", 1000);
         car.addPart(frame, "Frame");
         
         Assembly frontLcorner = new Assembly("Front L Corner", "02-fl");
@@ -52,6 +52,8 @@ public class POC {
         r24.addTime(new Runtime("fun", 500, LocalDateTime.now()));
         r24.addTime(new Runtime("not so fun", 500, LocalDateTime.now()));
         r24.addTime(new Runtime("not so fun", 200, LocalDateTime.now()));
+
+        System.out.println(r24.findPart("02-rod-b"));
         
         System.out.println(r24.fullPrint());
     }

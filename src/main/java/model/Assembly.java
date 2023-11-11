@@ -28,16 +28,14 @@ public class Assembly extends Thing{
         return returnMe;
     }
 
-    public String fullPrint() {
-        String returnMe = "[A] " + this.toString() + "\n";
+    public String fullPrint(Integer length) {
+        String returnMe = "";
+        for (int i = 0; i < length; i++) {returnMe += "     ";}
+        returnMe += "- [A] " + this.toString() + "\n";
         for (Thing part: parts) {
-            returnMe += "              - " + part.fullPrint();
+            returnMe += part.fullPrint(length+1);
         }
         return returnMe;
-    }
-
-    public void addPart(Part part) {
-        parts.add(part);
     }
 
     public void addTime(Time time) {
@@ -55,12 +53,12 @@ public class Assembly extends Thing{
     }
     
     public void addPart(Thing part, String[] path) {
-        if (path[0].equals(name)) {
+        if (path[0].equals(name) & path.length == 1) {
             parts.add(part);
         } else {
             for (Thing thing : parts) {
-                if (thing.getName().equals(path[0])) {
-                    String[] newPath = Arrays.copyOfRange(path, 1, path.length-1);
+                if (path[0].equals(thing.getName()) ) {
+                    String[] newPath = Arrays.copyOfRange(path, 1, path.length);
                     thing.addPart(part, newPath);
                 }
             }

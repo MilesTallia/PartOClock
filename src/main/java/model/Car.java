@@ -60,7 +60,7 @@ public class Car {
             returnMe += "    - " + subName + " (Overdue Parts: " + getOverduePartsOfSubsystem(subName) + ")\n";
             LinkedList<Thing> things = subsystems.get(subName);
             for (Thing thing : things){
-                returnMe += "         - " + thing.fullPrint();
+                returnMe += thing.fullPrint(2);
             }
         }
         return returnMe;

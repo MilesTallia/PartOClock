@@ -32,8 +32,10 @@ public class Part extends Thing{
         return name + getOverdueString();
     }
     
-    public String fullPrint() {
-        return String.format("[P] %s - {%s} - %ds\n", this.toString(), serial, this.calculateTime());
+    public String fullPrint(Integer length) {
+        String returnMe = "";
+        for (int i = 0; i < length; i++) {returnMe += "     ";}
+        return returnMe + String.format("- [P] %s - {%s} - %ds\n", this.toString(), serial, this.calculateTime());
     }
 
     public Integer calculateTime() {

@@ -52,9 +52,9 @@ public class POC {
         r24.addTime(new Runtime("fun", 500, LocalDateTime.now()));
         r24.addTime(new Runtime("not so fun", 500, LocalDateTime.now()));
         r24.addTime(new Runtime("not so fun", 200, LocalDateTime.now()));
-
-        System.out.println(r24.findPart("02-rod-b"));
         
         System.out.println(r24.fullPrint());
+
+        System.out.println(r24.findPart("02-rod-b"));
     }
 }

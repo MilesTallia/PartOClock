@@ -47,11 +47,14 @@ CREATE TABLE runtimes(
 CREATE TABLE childToParent(
     ID SERIAL PRIMARY KEY,
     childID INTEGER NOT NULL,
-    parentID INTEGER NOT NULL
+    parentID INTEGER NOT NULL,
+    childType TEXT NOT NULL,
+    parentType TEXT NOT NULL
 );
 
 CREATE TABLE timeToComponent(
     ID SERIAL PRIMARY KEY,
     timeID INTEGER NOT NULL,
-    componentID INTEGER NOT NULL
+    componentID INTEGER NOT NULL,
+    componentType TEXT NOT NULL
 );
